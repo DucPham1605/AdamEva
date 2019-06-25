@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam and Eva</title>
+</head>
+<body>
+<script>
+    function Apple(weight) {
+        this.weight = weight;
+        this.getWeight = function () {
+            return this.weight;
+        }
+    }
+    
+    function Human(name,gender,weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.bio = function () {
+            let a;
+            if (this.gender === "male"){
+                a = "đàn ông";
+            }
+            else if(this.gender === "female") {
+                a = "đàn bà";
+            }
+            document.write("Xin chào, tôi là " + this.name +" ,người " + a +" đầu tiên" + "<br>");
+        }
+        this.eat = function (food) {
+            food.weight --;
+        }
+    };
+
+    let adam = new Human('Adam','male',70);
+    let eva = new Human('Eva','female',50);
+    let apple = new Apple(10);
+
+    adam.bio();
+    eva.bio();
+
+
+    while(apple.weight>0){
+        adam.eat(apple);
+        document.write("Adam cắn một miếng táo" + "<br>");
+        eva.eat(apple);
+        document.write("Eva cắn một miếng táo" + "<br>");
+        if (apple.getWeight()===0){
+            document.write("Quả táo đã được ăn hết"+"<br>");
+        }
+        else {
+            document.write("Quả táo còn " + apple.getWeight()+ " đơn vị" + "<br>");
+        }
+    }
+</script>
+</body>
+</html>
